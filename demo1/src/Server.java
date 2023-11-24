@@ -15,18 +15,19 @@ import java.net.InetAddress;
  * they request.
  */
 public class Server {
-	
-	// Initialize a server socket.
+
+        // Initialize a server socket.
     private ServerSocket serverSocket;
 
 
     public Server() {
         try {
+        	// Ensures that any of the internal/external IP addresses are listening.
             serverSocket = new ServerSocket(9090, 0, InetAddress.getByName("0.0.0.0"));
             System.out.println("Server is now running.");
 
             while (true) {
-            	// Listens for a connection to be made to this socket and accepts it.
+                // Listens for a connection to be made to this socket and accepts it.
                 Socket aSocket = serverSocket.accept();
                 
                 // Create a new Thread Object and start it.
@@ -36,12 +37,12 @@ public class Server {
             e.printStackTrace();
             
         } finally {
-        	
-        	/*
-        	 * Ensure that certain cleanup operations are performed, regardless of whether 
-        	 * an exception is thrown or not.
-        	 */
-        	
+        
+                /*
+                 * Ensure that certain cleanup operations are performed, regardless of whether 
+                 * an exception is thrown or not.
+                 */
+        
             try {
                 if (serverSocket != null && !serverSocket.isClosed()) {
                     serverSocket.close();
@@ -72,13 +73,13 @@ public class Server {
                 }
 
                 if (!line.isEmpty()) {
-                	if (line.equalsIgnoreCase("date")) {
-                		 socketOutput.println(line.toUpperCase() + ": " + getCurrentDate());
-                	} else if (line.equalsIgnoreCase("time")) {
-                		socketOutput.println(line.toUpperCase() + ": " + getCurrentTime());
-                	} else {
-                		socketOutput.println("INVALID COMMAND");
-                	}
+                        if (line.equalsIgnoreCase("date")) {
+                                 socketOutput.println(line.toUpperCase() + ": " + getCurrentDate());
+                        } else if (line.equalsIgnoreCase("time")) {
+                                socketOutput.println(line.toUpperCase() + ": " + getCurrentTime());
+                        } else {
+                                socketOutput.println("INVALID COMMAND");
+                        }
                 }
             }
 

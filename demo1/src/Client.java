@@ -18,7 +18,7 @@ public class Client {
 	
     public static void main(String[] args) throws IOException {
         
-        Client dc = new Client("35.209.63.6", 9090);
+        Client dc = new Client("35.209.63.67", 9090);
         dc.communicate();
     }
     
