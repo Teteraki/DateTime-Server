@@ -6,6 +6,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.net.InetAddress;
 
 /**
  * The client can send three commands: DATE, TIME, or EXIT.
