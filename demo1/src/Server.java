@@ -21,7 +21,7 @@ public class Server {
 
     public Server() {
         try {
-            serverSocket = new ServerSocket(9090);
+            serverSocket = new ServerSocket(9090, 0, InetAddress.getByName("0.0.0.0"));
             System.out.println("Server is now running.");
 
             while (true) {
